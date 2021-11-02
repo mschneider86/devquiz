@@ -31,7 +31,11 @@ class QuizWidget extends StatelessWidget {
             isRight: false,
             isSelected: false,
           ),
-          AnswerWidget(title: 'sei la'),
+          AnswerWidget(
+            title: 'sei la',
+            isRight: false,
+            isSelected: false,
+          ),
         ],
       ),
     );

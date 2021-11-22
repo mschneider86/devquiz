@@ -1,5 +1,7 @@
+import 'package:DevQuiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:DevQuiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
 import 'package:DevQuiz/challenge/widgets/quiz/quiz_widget.dart';
+import 'package:DevQuiz/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ChallengePage extends StatefulWidget {
@@ -22,6 +24,25 @@ class _ChallengePageState extends State<ChallengePage> {
       ),
       body: QuizWidget(
         title: "O que o Flutter faz em sua totalidade?",
+      ),
+      bottomNavigationBar: SafeArea(
+        bottom: true,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Expanded(
+                child: NextButtonWidget(
+              label: "Fácil",
+              backgroundColor: AppColors.white,
+              textColor: AppColors.darkGreen,
+            )),
+            Expanded(
+                child: NextButtonWidget(
+                    label: "Confirmar",
+                    backgroundColor: AppColors.darkGreen,
+                    textColor: AppColors.white)),
+          ],
+        ),
       ),
     );
   }

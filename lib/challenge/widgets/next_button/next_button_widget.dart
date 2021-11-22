@@ -6,11 +6,30 @@ class NextButtonWidget extends StatelessWidget {
   final String label;
   final Color backgroundColor;
   final Color textColor;
+  final Color borderColor;
+  final VoidCallback onTap;
 
-  NextButtonWidget(
-      {required this.label,
-      required this.backgroundColor,
-      required this.textColor});
+  NextButtonWidget({
+    required this.label,
+    required this.backgroundColor,
+    required this.textColor,
+    required this.borderColor,
+    required this.onTap,
+  });
+
+  NextButtonWidget.green({required String label, required onTap})
+      : this.backgroundColor = AppColors.darkGreen,
+        this.textColor = AppColors.white,
+        this.borderColor = AppColors.green,
+        this.onTap = onTap,
+        this.label = label;
+
+  NextButtonWidget.white({required String label, required onTap})
+      : this.backgroundColor = AppColors.white,
+        this.textColor = AppColors.grey,
+        this.borderColor = AppColors.border,
+        this.onTap = onTap,
+        this.label = label;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +43,11 @@ class NextButtonWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
+          side: MaterialStateProperty.all(
+            BorderSide(color: borderColor),
+          ),
         ),
-        onPressed: () {},
+        onPressed: onTap,
         child: Text(
           label,
           style: GoogleFonts.notoSans(
